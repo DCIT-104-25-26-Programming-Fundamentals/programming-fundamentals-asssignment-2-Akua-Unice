@@ -26,6 +26,87 @@
 //
 // -----------------------------------------------------------------------------
 // REQUIREMENTS
+#include <iostream>
+using namespace std;
+
+// Function to calculate the sum
+int calculateSum(int arr[], int n)
+{
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+// Function to calculate the average
+double calculateAverage(int arr[], int n)
+{
+    int sum = calculateSum(arr, n);
+    return (double)sum / n;
+}
+
+// Function to find the maximum value
+int findMaximum(int arr[], int n)
+{
+    int max = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+// Function to find the minimum value
+int findMinimum(int arr[], int n)
+{
+    int min = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] < min)
+        {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+int main()
+{
+    int n;
+
+    cout << "How many numbers? ";
+    cin >> n;
+
+    // Validate input
+    if (n <= 0)
+    {
+        cout << "Error: Number of elements must be positive." << endl;
+        return 0;
+    }
+
+    int arr[100];
+
+    // Read numbers
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter number " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+
+    // Display results
+    cout << "\nResults:" << endl;
+    cout << "Sum:     " << calculateSum(arr, n) << endl;
+    cout << "Average: " << calculateAverage(arr, n) << endl;
+    cout << "Maximum: " << findMaximum(arr, n) << endl;
+    cout << "Minimum: " << findMinimum(arr, n) << endl;
+
+    return 0;
+}
 // -----------------------------------------------------------------------------
 // - You MUST implement each calculation in its own function (see scaffold).
 // - You may NOT use any standard library functions like accumulate(), max(),
